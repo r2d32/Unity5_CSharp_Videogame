@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{CA55C3CB-5B2B-F293-C02D-EA6ED62C64AF}</ProjectGuid>
+	<ProjectGuid>{E7AAF633-0639-45BD-6758-39CE27EC3DF0}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,22 +46,26 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Camera2D.cs" />
-     <Compile Include="Assets\Scripts\LinkController.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\Layer.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\Map.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\MapObject.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\MapObjectLayer.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\Property.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\PropertyCollection.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\Tile.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\TileGrid.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\TileLayer.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\TileSet.cs" />
-     <Compile Include="Assets\X-UniTMX\Code\TiledMapComponent.cs" />
+     <Compile Include="Assets\X-UniTMX\Editor\TiledMapEditor.cs" />
+ <Reference Include="\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
+ <HintPath>\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions">
+ <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions">
+ <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions">
+ <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
  <Reference Include="Assets\X-UniTMX\Ionic.Zlib">
  <HintPath>Assets\X-UniTMX\Ionic.Zlib.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{CA55C3CB-5B2B-F293-C02D-EA6ED62C64AF}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
