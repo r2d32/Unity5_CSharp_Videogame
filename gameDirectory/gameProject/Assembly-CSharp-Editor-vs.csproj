@@ -46,7 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\X-UniTMX\Editor\TiledMapEditor.cs" />
+     <Compile Include="Assets\2DVLS\Core\Editor\Light2DEditor.cs" />
+     <Compile Include="Assets\2DVLS\Core\Editor\Light2DMenu.cs" />
+     <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Diffuse.shader" />
+     <None Include="Assets\2DVLS\READ-ME.txt" />
+     <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Cutout (2-Sided).shader" />
+     <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Light.shader" />
+     <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Diffuse (2-Sided).shader" />
+     <None Include="Assets\2DVLS\Core\Shaders\2DVLS_Cutout.shader" />
  <Reference Include="\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
  <HintPath>\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -58,9 +65,6 @@
  </Reference>
  <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions">
  <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Assets\X-UniTMX\Ionic.Zlib">
- <HintPath>Assets\X-UniTMX\Ionic.Zlib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

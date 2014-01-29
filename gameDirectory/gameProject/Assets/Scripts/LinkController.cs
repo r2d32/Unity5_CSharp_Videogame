@@ -4,12 +4,32 @@ using System.Collections;
 public class LinkController : MonoBehaviour {
 	public float maxSpeed = 10f;
 	bool facingRight = true;
+	bool flashlightOn = true;
+	public Shader shaderFlashlightOff;
+	public Shader shaderFlashlightOn;
+	float time;
 
 	public Animator anim;
-
 	// Use this for initialization
+
+	void Update(){
+		time = GameManager.timeLeft;
+
+		//Switch for the flashlight
+		if (Input.GetKeyDown (KeyCode.Space) && time > 0 ) {
+			flashlightOn = !flashlightOn;
+			((Behaviour)GetComponent ("Halo")).enabled = flashlightOn;
+			renderer.material.shader = ((flashlightOn) ? shaderFlashlightOn : shaderFlashlightOff);
+
+		}
+		if (time < 0) {
+			((Behaviour)GetComponent ("Halo")).enabled = false;
+			renderer.material.shader = shaderFlashlightOff;
+		}
+	}
+
 	void Start () {
-		anim = GetComponent<Animator>(); 
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +47,6 @@ public class LinkController : MonoBehaviour {
 		else if (move < 0 && facingRight)
 			Flip ();
 	}
-
 	void Flip() {
 
 		facingRight = !facingRight;
