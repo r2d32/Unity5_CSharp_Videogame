@@ -19,7 +19,7 @@ public class LinkController : MonoBehaviour {
 		print ("hello");
 		print (other.gameObject.tag);
 		if (other.gameObject.tag == "newBattery") {
-			GameManager.timeLeft = 50f;
+			GameManager.timeLeft = 49f;
 			Destroy(other.gameObject);
 			print ("in");
 
@@ -41,6 +41,7 @@ public class LinkController : MonoBehaviour {
 		if (time < 0) {
 			((Behaviour)GetComponent ("Halo")).enabled = false;
 			renderer.material.shader = shaderFlashlightOff;
+			flashlightOn = false;
 		}
 		if (time < 7 && time > 6.3 || time < 1.0 && time > 0.1) {
 			((Behaviour)GetComponent ("Halo")).enabled = (Random.Range(1,3) > 1);
