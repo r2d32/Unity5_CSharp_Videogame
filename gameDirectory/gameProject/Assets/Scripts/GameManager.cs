@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	bool pauseMenu;
 
 			
-	public static float timeLeft = 50.0f;
+	public static float timeLeft = 10.0f;
 		
 
 	void Update(){
@@ -35,16 +35,16 @@ public class GameManager : MonoBehaviour {
 		}
 
 
-		timeLeft -= Time.deltaTime;
+		if (LinkController.flashlightOn) timeLeft -= Time.deltaTime;
 
 
 		if (timeLeft <= 0.0f){
 		
 			// End the level here.
-			print( "You ran out of time"+ (int)timeLeft);
+			//print( "You ran out of time"+ (int)timeLeft);
 		
 		} else {
-			print("Time left = " + (int)timeLeft + " seconds" );
+			//print("Time left = " + (int)timeLeft + " seconds" );
 		
 		}
 

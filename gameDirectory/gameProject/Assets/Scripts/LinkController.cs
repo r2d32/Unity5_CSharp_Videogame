@@ -4,12 +4,28 @@ using System.Collections;
 public class LinkController : MonoBehaviour {
 	public float maxSpeed = 10f;
 	bool facingRight = true;
-	bool flashlightOn = true;
+	public static bool flashlightOn = true;
 	public Shader shaderFlashlightOff;
 	public Shader shaderFlashlightOn;
 	float time;
 
+
 	public Animator anim;
+
+
+
+	//Picking up a battery
+	void OnCollisionEnter2D (Collision2D other){
+		print ("hello");
+		print (other.gameObject.tag);
+		if (other.gameObject.tag == "newBattery") {
+			GameManager.timeLeft = 50f;
+			Destroy(other.gameObject);
+			print ("in");
+
+		}
+	
+	}
 	// Use this for initialization
 
 	void Update(){
@@ -26,6 +42,20 @@ public class LinkController : MonoBehaviour {
 			((Behaviour)GetComponent ("Halo")).enabled = false;
 			renderer.material.shader = shaderFlashlightOff;
 		}
+		if (time < 7 && time > 6.3 || time < 1.0 && time > 0.1) {
+			((Behaviour)GetComponent ("Halo")).enabled = (Random.Range(1,3) > 1);
+
+
+		}
+		if (time < 6 && time > 5.6 ) {((Behaviour)GetComponent ("Halo")).enabled = true;}
+
+		if (time < 0) {
+			((Behaviour)GetComponent ("Halo")).enabled = false;
+			renderer.material.shader = shaderFlashlightOff;
+		}
+
+
+
 	}
 
 	void Start () {
