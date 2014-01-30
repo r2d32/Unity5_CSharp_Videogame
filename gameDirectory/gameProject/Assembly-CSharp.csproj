@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Camera2D.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LinkController.cs" />
+     <Compile Include="Assets\Scripts\TrailSwitch.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

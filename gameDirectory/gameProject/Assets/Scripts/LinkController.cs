@@ -7,6 +7,7 @@ public class LinkController : MonoBehaviour {
 	public static bool flashlightOn = true;
 	public Shader shaderFlashlightOff;
 	public Shader shaderFlashlightOn;
+
 	float time;
 
 
@@ -16,20 +17,22 @@ public class LinkController : MonoBehaviour {
 
 	//Picking up a battery
 	void OnCollisionEnter2D (Collision2D other){
-		print ("hello");
-		print (other.gameObject.tag);
+
 		if (other.gameObject.tag == "newBattery") {
 			GameManager.timeLeft = 49f;
 			Destroy(other.gameObject);
-			print ("in");
 
 		}
-	
 	}
+
+
+
 	// Use this for initialization
 
 	void Update(){
 		time = GameManager.timeLeft;
+
+
 
 		//Switch for the flashlight
 		if (Input.GetKeyDown (KeyCode.Space) && time > 0 ) {
@@ -62,7 +65,8 @@ public class LinkController : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 	}
-	
+
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		anim = GetComponent<Animator>(); 
@@ -72,6 +76,7 @@ public class LinkController : MonoBehaviour {
 		anim.SetFloat ( "SpeedY", moveY );
 		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
 		rigidbody2D.velocity = new Vector3 (rigidbody2D.velocity.x, moveY * maxSpeed);
+
 
 		if (move > 0 &&!facingRight) 
 			Flip ();
