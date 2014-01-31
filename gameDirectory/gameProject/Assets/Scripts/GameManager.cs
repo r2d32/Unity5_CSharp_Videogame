@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour {
 	public int playersHealth = 1;
 	public Texture2D[] batteryStatus;
 	double shellLife = 10.0;
-	int playerCoordinateX;
-	int playerCoordinateY;
 
 	bool pauseMenu;
 
@@ -65,16 +63,13 @@ public class GameManager : MonoBehaviour {
 	
 			if (GUI.Button (new Rect(Screen.width * .25f, Screen.height * .4f, Screen.width * .5f, Screen.height * .1f ), "SAVE")){
 				print ("SAVED GAME");
-				PlayerPrefs.SetInt ("Player Coordinate X", playerCoordinateX);
-				PlayerPrefs.SetInt ("Player Coordinate Y", playerCoordinateY);
 				PlayerPrefs.SetInt ("Player Health", playersHealth);
 			}
 			if (GUI.Button (new Rect(Screen.width * .25f, Screen.height * .5f, Screen.width * .5f, Screen.height * .1f ), "DISPLAY")){
 				print ("DISPLAYED SAVED ITEMS");
-				print(PlayerPrefs.GetInt ("Player Coordinate X"));
-				print(PlayerPrefs.GetInt ("Player Coordinate Y"));
 				print(PlayerPrefs.GetInt ("Player Health"));
 			}
 		}
 	}
+ 	public void SaveGame(){PlayerPrefs.SetInt ("Player Health", playersHealth);}
 }

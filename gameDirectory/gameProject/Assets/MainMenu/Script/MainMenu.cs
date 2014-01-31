@@ -32,9 +32,9 @@ public class MainMenu : MonoBehaviour {
 		} else { 
 
 			//Display Buttons
-			if (GUI.Button (new Rect (Screen.width * .25f, Screen.height * .5f, Screen.width * .5f, Screen.height * .1f), "Play Game")) {
+			if (GUI.Button (new Rect (Screen.width * .25f, Screen.height * .5f, Screen.width * .5f, Screen.height * .1f), "Play ")) {
 				print ("helo");
-				Application.LoadLevel("Scene1");
+				Application.LoadLevel("LevelSelect");
 			}
 			if (GUI.Button (new Rect (Screen.width * .25f, Screen.height * .7f, Screen.width * .5f, Screen.height * .1f), "Game Options")) {
 				print ("helo");
