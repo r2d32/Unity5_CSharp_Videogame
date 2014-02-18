@@ -1,0 +1,99 @@
+fileFormatVersion: 2
+guid: 959f5946570d5488db2172aa6296af9e
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Firstsprite_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 351
+        width: 138
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Firstsprite_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 348
+        width: 138
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Firstsprite_2
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 350
+        width: 138
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Firstsprite_3
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 347
+        width: 137
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Firstsprite_4
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 348
+        width: 138
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Firstsprite_5
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 348
+        width: 138
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

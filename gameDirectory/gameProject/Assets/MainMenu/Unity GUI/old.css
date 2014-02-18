@@ -1,0 +1,64 @@
+body{
+	background-color:black;
+	color:gold;
+	font-size: 30px;	
+}
+
+#menu{
+	height:400px;
+	margin-top:-50px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#menu > li{
+	font-size: 50px;
+	text-align:center;
+}
+
+ul{
+	horizontal-align:center;
+	vertical-align:center;
+	width:600px;
+	height:300px;
+	color:gold;
+}
+
+#menu > li > ul{
+	margin-top:-120px;
+}
+
+#menu > li > ul > li{
+	font-size: 40px;
+	horizontal-align:center;
+	text-align:center;
+	color:white;
+	width:100%;
+}
+
+#menu > li > ul > li > a{
+	width:200px;
+	horizontal-align:center;
+}
+
+#menu > li > ul > li > a:hover{
+	color:gold;
+}
+
+#info{	
+	position:absolute;
+	left:660px;
+	top:570px;
+	width:140px;
+	height:50px;
+	color:white;
+}
+
+#info a{
+	font-size:20px;
+	color:white;
+}
+
+#info a:hover{
+	font-size:22px;
+}

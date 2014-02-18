@@ -15,9 +15,13 @@ public class LevelSelect : MonoBehaviour {
 			Application.LoadLevel("Scene1");
 
 		}
-		if(GUI.Button (new Rect(sw*.5f,y,sw*.5f,sh*.5f),"LEVEL #2")){
-			Application.LoadLevel("Scene1");
+		if(PlayerPrefs.GetInt("levelUnlock", 0)>=2){
+			if(GUI.Button (new Rect(sw*.5f,y,sw*.5f,sh*.5f),"LEVEL #2")){
+				Application.LoadLevel("Scene2");
 			
+			}
+		} else {
+			GUI.Box (new Rect(sw*.5f,y,sw*.5f,sh*.5f),"LOCKED"+"\n"+"LEVEL #2");
 		}
 	}
 }

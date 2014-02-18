@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 967af45d8b3e64b82af81603bfd7c956
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: right_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 13
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_2
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_3
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_4
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 11
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_5
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_6
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 11
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_7
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 13
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_8
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 11
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_9
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 11
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_10
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 11
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_11
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_12
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_13
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 13
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_14
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 11
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_15
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 11
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_16
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 11
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: right_17
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 11
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
