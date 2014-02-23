@@ -17,6 +17,7 @@ public class LinkController : MonoBehaviour {
 	float groundRadius = 0.4f;
 	public LayerMask whatIsGround;
 	int jumpCount = 0;
+	public int jumpsAllowed = 2;
 	//Variables for ladder
 	float ladderRadius = 0.06f;
 	public LayerMask whatIsLadder;
@@ -33,7 +34,7 @@ public class LinkController : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other){
 
 		if (other.gameObject.tag == "newBattery") {
-			GameManager.timeLeft = 49f;
+			GameManager.batteryTimeLeft = 49f;
 			Destroy(other.gameObject);
 
 		}
@@ -43,8 +44,9 @@ public class LinkController : MonoBehaviour {
 	// Use this for initialization
 
 	void Update(){
-		print (transform.position.x);
-		time = GameManager.timeLeft;
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
+
+		time = GameManager.batteryTimeLeft;
 
 		rigidbody2D.gravityScale = (onLadder) ? 0 : 1;
 
@@ -78,11 +80,18 @@ public class LinkController : MonoBehaviour {
 		} else {
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 		}
+		// Character Jump
+		if (Input.GetKeyDown (KeyCode.Space) && ( grounded || jumpCount < jumpsAllowed)) {
 
-		if (Input.GetKeyDown (KeyCode.Space) && grounded  && jumpCount < 1) {
+			jumpCount = (grounded)?   0:jumpCount;   
 
-			rigidbody2D.AddForce(new Vector2(0,700f));
-			
+			if(jumpCount < 1){
+
+				rigidbody2D.AddForce(new Vector2(0,700f));
+			}else{
+				rigidbody2D.AddForce(new Vector2(0,400f));
+			}
+			jumpCount =jumpCount +1;
 			
 		}
 		//Respawn Function
@@ -90,7 +99,6 @@ public class LinkController : MonoBehaviour {
 			dead = true;
 			Respawn();
 		}
-
 
 	}
 
@@ -102,24 +110,27 @@ public class LinkController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		onLadder = Physics2D.OverlapCircle (groundCheck.position, ladderRadius, whatIsLadder); 		 
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
 		anim = GetComponent<Animator>(); 
 		float move = Input.GetAxis ("Horizontal");
 		float moveY = Input.GetAxis ("Vertical");
 
 		if (grounded) {
-
-			jumpCount  =0 ;
 			rigidbody2D.velocity = new Vector2 (((Input.GetKey(KeyCode.LeftShift))? (maxSpeed + boost) : maxSpeed) * move ,
 			                                    rigidbody2D.velocity.y);
-		}else{
 		}
 		if (onLadder) {
 			anim.SetFloat ( "SpeedY", moveY );
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, moveY * maxSpeed);
 
-		} else { anim.SetFloat ( "SpeedY", 0 );}
-		anim.SetFloat ("Speed", Mathf.Abs (move));
+		} else { 
+			anim.SetFloat ( "SpeedY", 0 );
+		}
+		if (!grounded && !onLadder) {
+			rigidbody2D.velocity = new Vector2 (((Input.GetKey(KeyCode.LeftShift))? (maxSpeed + boost) : maxSpeed) * move ,
+			                                    rigidbody2D.velocity.y);
+		}
+
+			anim.SetFloat ("Speed", Mathf.Abs (move));
 
 		if (move > 0 &&!facingRight) 
 			Flip ();

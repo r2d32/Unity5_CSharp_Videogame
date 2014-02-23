@@ -4,20 +4,20 @@ using System.Collections;
 public class Light2D : MonoBehaviour {
 	
 	public Transform Character;
-	
 	public float smoothRate = 0.5f;
 	
 	private Transform thisTransform; 
 	private Vector2 velocity;
-	
-	// Use this for initialization
+
+	private bool IsNan (Vector3 v){
+		return ((float.IsNaN(v.z)) || (float.IsNaN(v.x)) || (float.IsNaN(v.z)));
+	}
+	/********** THIS INITIALIZES THE LIGHT POSITION **********/
 	void Start () {
 		thisTransform = transform;
 		velocity = new Vector2 (0.5f, 0.5f);
-		
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		Vector2 newPos2D = Vector2.zero;
 		
@@ -25,7 +25,9 @@ public class Light2D : MonoBehaviour {
 		newPos2D.y = Mathf.SmoothDamp (thisTransform.position.y, Character.position.y, ref velocity.y, smoothRate);
 		
 		Vector3 newPos = new Vector3 (newPos2D.x, newPos2D.y, transform.position.z);
-		transform.position  = Vector3.Slerp(transform.position, newPos, Time.time);
-		
+
+		if (Time.time != float.NaN && !(IsNan(newPos)) && !(IsNan(transform.position)) ) {
+			transform.position = Vector3.Slerp (transform.position, newPos, Time.time );
+		}
 	}
 }
