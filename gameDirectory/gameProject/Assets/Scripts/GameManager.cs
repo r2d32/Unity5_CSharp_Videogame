@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	public int playersBatteries = 1;
 	public Texture2D[] batteryStatus;
 	private bool pauseMenuActive;
+	public static float gameTime;
 
 	/********** CHARACTER INFO *************/
 	public static int playersHealth = 3;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour {
 		
 	/********** UPDATES VARIABLES THAT USE TIME **********/
 	void Update(){
+		gameTime += Time.deltaTime;
 
 		if (Input.GetKeyDown (KeyCode.P) && !pauseMenuActive) {
 			pauseMenuActive = true;
