@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\Door2.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Items\Chest.cs" />
      <Compile Include="Assets\Scripts\Key.cs" />
      <Compile Include="Assets\Scripts\Light2D.cs" />
      <Compile Include="Assets\Scripts\LinkController.cs" />
