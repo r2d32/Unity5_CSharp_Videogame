@@ -10,7 +10,10 @@ public class BulletScript : MonoBehaviour {
 			Destroy(gameObject);
 			other.gameObject.SendMessage("EnemyDamaged", damageValue, SendMessageOptions.DontRequireReceiver);
 			other.gameObject.SendMessage("GracePeriod", 2.0f, SendMessageOptions.DontRequireReceiver);
-		} else if (other.gameObject.tag != "character"){
+		} else if (other.gameObject.tag == "Target"){
+			Destroy(gameObject);
+			other.gameObject.SendMessage("EnemyDamaged", damageValue, SendMessageOptions.DontRequireReceiver);
+		}else if (other.gameObject.tag != "character"){
 			Destroy(gameObject);
 		}
 	}

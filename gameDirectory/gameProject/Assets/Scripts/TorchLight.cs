@@ -2,21 +2,24 @@
 using UnityEngine;
 
 public class TorchLight : MonoBehaviour {
-
-	private float time = GameManager.gameTime;
+		
+	/********** LIGHT INTENSITY VARIABLES FOR A TORCHLIGHT **********/
+	private float currentTime = GameManager.gameTime;
 	public Light torch;
 	public float upperIntensity = 0.2f;
 	public float lowerIntensity= -0.2f;
 	public float initialIntensity;
-	void Start(){
-		}
-	// Update is called once per frame
-	void Update () {
-		time = GameManager.gameTime;
-		if ((time % 2) == 0 || (time % 2) == 0.5 ) {
-			torch.intensity = initialIntensity;			
 
-		}else{ torch.intensity += Random.Range(lowerIntensity, upperIntensity); }
-		print("Fire"+ (time%8)+ "  Random: ");
+	
+	/********** FIRE LIGHT INTENSITY SIMULATION **********/
+	void Update () {
+
+		currentTime = GameManager.gameTime;
+
+		if ( currentTime % 2 == 0 || ( ( currentTime % 2 > 0.5 ) && (currentTime % 2 < 0.6 ) ) ) {
+			torch.intensity = initialIntensity;			
+		}else{ 
+			torch.intensity += Random.Range(lowerIntensity, upperIntensity); 
+		}
 	}
 }

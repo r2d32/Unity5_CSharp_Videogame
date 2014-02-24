@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\LinkController.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\RatController.cs" />
+     <Compile Include="Assets\Scripts\Target.cs" />
      <Compile Include="Assets\Scripts\TorchLight.cs" />
      <Compile Include="Assets\Scripts\TrailSwitch.cs" />
      <None Include="Assets\Sprites\Platformer Pack\HUD\hud_spritesheet.txt" />
