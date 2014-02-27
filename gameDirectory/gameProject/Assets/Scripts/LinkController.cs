@@ -51,7 +51,7 @@ public class LinkController : MonoBehaviour {
 		rigidbody2D.gravityScale = (onLadder) ? 0 : 1;
 
 		//Switch for the flashlight
-		if (Input.GetKeyDown (KeyCode.F) && time > 0 ) {
+		if (Input.GetButtonDown("Light") && time > 0 ) {
 			flashlightOn = !flashlightOn;
 			(flashlight).enabled = flashlightOn;
 
@@ -81,7 +81,7 @@ public class LinkController : MonoBehaviour {
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 		// Character Jump
-		if (Input.GetKeyDown (KeyCode.Space) && ( grounded || jumpCount < jumpsAllowed)) {
+		if (Input.GetButtonDown("Jump") && ( grounded || jumpCount < jumpsAllowed)) {
 
 			jumpCount = (grounded)?   0:jumpCount;   
 
@@ -115,7 +115,7 @@ public class LinkController : MonoBehaviour {
 		float moveY = Input.GetAxis ("Vertical");
 
 		if (grounded) {
-			rigidbody2D.velocity = new Vector2 (((Input.GetKey(KeyCode.LeftShift))? (maxSpeed + boost) : maxSpeed) * move ,
+			rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
 			                                    rigidbody2D.velocity.y);
 		}
 		if (onLadder) {
@@ -126,7 +126,7 @@ public class LinkController : MonoBehaviour {
 			anim.SetFloat ( "SpeedY", 0 );
 		}
 		if (!grounded && !onLadder) {
-			rigidbody2D.velocity = new Vector2 (((Input.GetKey(KeyCode.LeftShift))? (maxSpeed + boost) : maxSpeed) * move ,
+			rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
 			                                    rigidbody2D.velocity.y);
 		}
 

@@ -6,6 +6,7 @@ public class Target : MonoBehaviour {
 	public int targetHitsLeft;
 	public SpriteRenderer targetStatus;
 	public Sprite[] targetPics;
+	public GameObject actionalbeItem;
 
 
 	
@@ -18,6 +19,7 @@ public class Target : MonoBehaviour {
 			targetHitsLeft --;
 		if (targetHitsLeft <= 0) {
 			targetHitsLeft = 0;
+			actionalbeItem.SendMessage("OpenDoor", SendMessageOptions.DontRequireReceiver);
 		}
 		targetStatus.sprite = targetPics [targetHitsLeft];
 	}

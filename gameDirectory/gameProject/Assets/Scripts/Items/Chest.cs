@@ -7,9 +7,9 @@ public class Chest : MonoBehaviour {
 	public Animator chestAnimator;
 	public GameObject[] itemsHeld;
 	
-	/********** METHOD TO OPEN CHEST **********/
+	/********** METHODS TO OPEN CHEST **********/
 	void OnTriggerEnter2D (Collider2D other){
-		if (other.gameObject.tag == "character" && Input.GetKeyDown (KeyCode.E)) {
+		if (other.gameObject.tag == "character" && Input.GetButtonDown("Action")) {
 			chestAnimator = GetComponent<Animator>(); 
 			chestAnimator.SetBool("closed", false);
 			ReleaseItems();
@@ -17,13 +17,10 @@ public class Chest : MonoBehaviour {
 	}
 	void ReleaseItems(){
 		foreach (GameObject item in itemsHeld) {
-			//item.collider2D.enabled
 			item.GetComponent<SpriteRenderer>().enabled = true;
 			item.GetComponent<Collider2D>().enabled = true;
 		}
 	}
-
 	void Update () {
-	
 	}
 }

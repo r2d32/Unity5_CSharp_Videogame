@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour {
 	void Update(){
 		gameTime += Time.deltaTime;
 
-		if (Input.GetKeyDown (KeyCode.P) && !pauseMenuActive) {
+		if (Input.GetButtonDown("Pause") && !pauseMenuActive) {
 			pauseMenuActive = true;
-		} else if (Input.GetKeyDown (KeyCode.P)) {
+		} else if (Input.GetButtonDown("Pause")) {
 			pauseMenuActive = false;
 		}
 
