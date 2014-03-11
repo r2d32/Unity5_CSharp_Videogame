@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 
 	/********** GUI VARIABLES **********/
 	public Texture playersHealthTexture;
+	public Texture playerCoinTexture;
+	public Texture playerRocksTexture;
 	public float screenPositionX;
 	public float screenPositionY;
 	public int iconSizeX = 25;
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	public Texture2D[] batteryStatus;
 	private bool pauseMenuActive;
 	public static float gameTime;
+	public GUIStyle guiText;
 
 	/********** CHARACTER INFO *************/
 	public static int playersHealth = 3;
@@ -49,24 +52,36 @@ public class GameManager : MonoBehaviour {
 	void OnGUI () {
 
 		/********** ON GAME GUI **********/
-		for (int h = 0; h < playersBatteries; h++) {
-			GUI.DrawTexture(new Rect (screenPositionX , screenPositionY + iconSizeY, iconSizeX * 2, iconSizeY*2 ), 
-			                batteryStatus[(( batteryTimeLeft > batteryShellLife )?((int)Math.Floor((double)batteryTimeLeft /(double)batteryShellLife)):
-			                0)], ScaleMode.ScaleToFit, true, 0);
-		}
 
+		// HEALTH 
 		for (int h = 0; h < playersHealth; h++) {
 			GUI.DrawTexture(new Rect (screenPositionX + ( h * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), 
 			                playersHealthTexture, ScaleMode.ScaleToFit, true, 0);
 		}
 
+		// COLLECTABLES
+		GUI.DrawTexture(new Rect (screenPositionX + ( 4 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), 
+		                playerCoinTexture, ScaleMode.ScaleToFit, true, 0);
+		GUI.Label(new Rect (screenPositionX + ( 5 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), ":" + LinkController.numOfCoins, guiText);
+
+		GUI.DrawTexture(new Rect (screenPositionX + ( 6 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), 
+		                playerRocksTexture, ScaleMode.ScaleToFit, true, 0);
+		GUI.Label(new Rect (screenPositionX + ( 7 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), ":" + LinkController.numOfRocks, guiText);
+
+		for (int h = 0; h < playersBatteries; h++) {
+			GUI.DrawTexture(new Rect (screenPositionX , screenPositionY + iconSizeY, iconSizeX * 2, iconSizeY*2 ), 
+			                batteryStatus[(( batteryTimeLeft > batteryShellLife )?((int)Math.Floor((double)batteryTimeLeft /(double)batteryShellLife)):
+			               0)], ScaleMode.ScaleToFit, true, 0);
+		}
+
+		// KEY ITEMS 
 		for (int e = 0; e < characterKeyItems.Count; e++) {
 
 			GUI.DrawTexture(new Rect (screenPositionX + (Screen.width/2) + (e * iconSizeX ) , screenPositionY, iconSizeX , iconSizeY), 
 			                characterKeyItems[e], ScaleMode.ScaleToFit, true, 0);
 		}
 
-		/********** PAUSE MENU GUI **********/
+		// PAUSE MENU GUI
 		if (pauseMenuActive) {
 			Time.timeScale =0;
 			if (GUI.Button (new Rect(Screen.width * .25f, Screen.height * .4f, Screen.width * .5f, Screen.height * .1f ), "SAVE")){

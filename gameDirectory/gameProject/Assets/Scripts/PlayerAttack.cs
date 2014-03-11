@@ -11,8 +11,9 @@ public class PlayerAttack : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if ( Input.GetButtonDown("Fire1") && Time.time >= coolDown) {
+		if ( Input.GetButtonDown("Fire1") && Time.time >= coolDown && LinkController.numOfRocks > 0) {
 			BulletAttack();
+			LinkController.numOfRocks -=1;
 		}
 	}
 

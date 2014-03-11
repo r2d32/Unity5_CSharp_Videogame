@@ -9,8 +9,10 @@ public class LinkController : MonoBehaviour {
 	public Shader shaderFlashlightOff;
 	public Shader shaderFlashlightOn;
 	public Light flashlight;
-	public static float respawnX;
-	public static float respawnY;
+	public static float respawnX = -188.7f;
+	public static float respawnY = 8.79f;
+	public static int numOfCoins = 0;
+	public static int numOfRocks = 0;
 	//Variable for grounded
 	bool grounded = false;
 	public Transform groundCheck;
@@ -24,6 +26,10 @@ public class LinkController : MonoBehaviour {
     bool onLadder = false;
 	public static bool dead = false;
 	float time;
+	//Variables for walls
+	public Transform wallCheckL;
+	float wallRadius;
+	bool touchingL = false;
 
 
 	public Animator anim;
@@ -44,8 +50,9 @@ public class LinkController : MonoBehaviour {
 	// Use this for initialization
 
 	void Update(){
+		anim.SetBool ("dead", dead);
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
-
+	    touchingL = Physics2D.OverlapCircle (wallCheckL.position, groundRadius, whatIsGround); 
 		time = GameManager.batteryTimeLeft;
 
 		rigidbody2D.gravityScale = (onLadder) ? 0 : 1;
@@ -81,7 +88,7 @@ public class LinkController : MonoBehaviour {
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 		// Character Jump
-		if (Input.GetButtonDown("Jump") && ( grounded || jumpCount < jumpsAllowed)) {
+		if (Input.GetButtonDown("Jump") && ( grounded || jumpCount < jumpsAllowed) && !dead) {
 
 			jumpCount = (grounded)?   0:jumpCount;   
 
@@ -114,28 +121,35 @@ public class LinkController : MonoBehaviour {
 		float move = Input.GetAxis ("Horizontal");
 		float moveY = Input.GetAxis ("Vertical");
 
-		if (grounded) {
-			rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
-			                                    rigidbody2D.velocity.y);
-		}
-		if (onLadder) {
-			anim.SetFloat ( "SpeedY", moveY );
-			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, moveY * maxSpeed);
+		if (!dead) {
 
-		} else { 
-			anim.SetFloat ( "SpeedY", 0 );
-		}
-		if (!grounded && !onLadder) {
-			rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
-			                                    rigidbody2D.velocity.y);
-		}
+			if (grounded) {
+				rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
+				                                    rigidbody2D.velocity.y);
+			}
+			if (onLadder) {
+				anim.SetFloat ( "SpeedY", moveY );
+				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, moveY * maxSpeed);
+
+			} else { 
+				anim.SetFloat ( "SpeedY", 0 );
+			}
+			if (!grounded && !onLadder) {
+				rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
+				                                    rigidbody2D.velocity.y);
+			}
 
 			anim.SetFloat ("Speed", Mathf.Abs (move));
+			anim.SetBool ("running", ((Input.GetButton ("Run") || (Input.GetAxis ("Run") > 0.5f))));
+			anim.SetBool ("jumping", !(grounded));
+			anim.SetBool ("dead", dead);
+			anim.SetBool ("throw", Input.GetButtonDown ("Fire1"));
 
-		if (move > 0 &&!facingRight) 
-			Flip ();
-		else if (move < 0 && facingRight)
-			Flip ();
+			if (move > 0 &&!facingRight) 
+				Flip ();
+			else if (move < 0 && facingRight)
+				Flip ();
+		}
 	}
 	void Flip() {
 
@@ -147,10 +161,10 @@ public class LinkController : MonoBehaviour {
 	}
 
 	void Respawn() {
-		transform.position = new Vector2 (-25.8f, 15);
+		GameManager.gracePeriod = 2f;
+		transform.position = new Vector2 (respawnX, respawnY);
 		GameManager.playersHealth = 3;
 		dead = false;
 	}
 
 }
-

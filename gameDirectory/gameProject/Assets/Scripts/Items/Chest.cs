@@ -8,10 +8,11 @@ public class Chest : MonoBehaviour {
 	public GameObject[] itemsHeld;
 	
 	/********** METHODS TO OPEN CHEST **********/
-	void OnTriggerEnter2D (Collider2D other){
+	IEnumerator OnTriggerEnter2D (Collider2D other){
 		if (other.gameObject.tag == "character" && Input.GetButtonDown("Action")) {
 			chestAnimator = GetComponent<Animator>(); 
 			chestAnimator.SetBool("closed", false);
+			yield return new WaitForSeconds(0.7f);
 			ReleaseItems();
 		}
 	}
@@ -24,3 +25,4 @@ public class Chest : MonoBehaviour {
 	void Update () {
 	}
 }
+	
