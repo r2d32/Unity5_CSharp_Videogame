@@ -2,27 +2,22 @@
 using System.Collections;
 
 public class RatController : MonoBehaviour {
-	// Reference to our GameManager Script
+
 	public GameManager gameManager;
 
-	//Enemies Starting/End Positions
+	/********** NPC's VARIABLES **********/
 	float startingPos;
 	public Animator ratAnim;
 	public int damageValue = 1;
 	public int enemyLife = 3;
-
 	bool facingRight = true;
 	float endPos;
-	
-	//Units Enemy Moves Right
 	public int unitToMove = 5;
-	//Enemies Movement Speed
 	public int moveSpeed = 4;
-	//Moving Right or left
 	bool moveRight = true; 
 	static float gracePeriod = 0;
 
-	// Use this for initialization
+	/********** INITIALIZATION ***********/
 	void Awake () {
 		startingPos = transform.position.x;
 		endPos = startingPos + unitToMove;
@@ -44,7 +39,7 @@ public class RatController : MonoBehaviour {
 
 		}
 
-		// Flicker character on grace period
+		/********** NPC's GRACE PERIOD **********/ 
 		if (gracePeriod > 0) {
 			this.GetComponent<SpriteRenderer> ().enabled = !this.GetComponent<SpriteRenderer> ().enabled;
 			gracePeriod -= Time.deltaTime;
@@ -56,13 +51,11 @@ public class RatController : MonoBehaviour {
 	}
 
 	
-	//
+	/********** COLLLIDER ATTACK **********/
 	void OnTriggerEnter2D (Collider2D other){
 		if (other.gameObject.tag == "character" && GameManager.gracePeriod <= 0) {
 			GameManager.playersHealth -=damageValue;
 			GameManager.gracePeriod = 2.0f;
-			//gameManager.SendMessage("PlayerDamaged", damageValue, SendMessageOptions.DontRequireReceiver);
-			//gameManager.controller2D.SendMessage("TakenDamage", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 
@@ -72,7 +65,7 @@ public class RatController : MonoBehaviour {
 	}
 	
 	
-	// Update is called once per frame
+	/********** NPC's MOVEMENT **********/ 
 	void FixedUpdate () {
 		ratAnim = GetComponent<Animator>(); 
 		float move = rigidbody2D.velocity.x;
@@ -83,6 +76,7 @@ public class RatController : MonoBehaviour {
 		else if (move < 0 && facingRight)
 			Flip ();
 	}
+
 	void Flip() {
 		
 		facingRight = !facingRight;
@@ -91,6 +85,7 @@ public class RatController : MonoBehaviour {
 		transform.localScale = theScale;
 		
 	}
+
 	void GracePeriod(float passedTime){
 		gracePeriod = passedTime;
 	}
