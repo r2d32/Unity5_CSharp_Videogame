@@ -50,6 +50,7 @@
      <Compile Include="Assets\MainMenu\Script\LevelSelect.cs" />
      <Compile Include="Assets\MainMenu\Script\MainMenu.cs" />
      <Compile Include="Assets\Scripts\BulletScript.cs" />
+     <Compile Include="Assets\Scripts\Butterfly_npc.cs" />
      <Compile Include="Assets\Scripts\Camera2D.cs" />
      <Compile Include="Assets\Scripts\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Collectables.cs" />
@@ -58,7 +59,6 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Items\Chest.cs" />
      <Compile Include="Assets\Scripts\Items\Doors.cs" />
-     <Compile Include="Assets\Scripts\Leak.cs" />
      <Compile Include="Assets\Scripts\Light2D.cs" />
      <Compile Include="Assets\Scripts\LinkController.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
@@ -67,7 +67,9 @@
      <Compile Include="Assets\Scripts\Target.cs" />
      <Compile Include="Assets\Scripts\TorchLight.cs" />
      <Compile Include="Assets\Scripts\TrailSwitch.cs" />
-     <Compile Include="Assets\Scripts\waterDrop.cs" />
+     <Compile Include="Assets\Scripts\Zone.cs" />
+     <Compile Include="Assets\Scripts\objectThrower.cs" />
+     <Compile Include="Assets\Scripts\throwable.cs" />
      <None Include="Assets\Sprites\Platformer Pack\HUD\hud_spritesheet.txt" />
      <None Include="Assets\Sprites\Platformer Pack\tiles_spritesheet.txt" />
      <None Include="Assets\Sprites\Platformer Pack\Enemies\enemies_spritesheet.txt" />

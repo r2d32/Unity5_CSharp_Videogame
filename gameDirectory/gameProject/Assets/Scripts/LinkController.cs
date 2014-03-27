@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 public class LinkController : MonoBehaviour {
+
 	public float maxSpeed = 4f;
-	float boost = 7f;
+	float boost = 4f;
 	public static bool facingRight = true;
-	public static bool flashlightOn = true;
+	public static bool flashlightOn = false;
+	static bool characterRunning = false;
+	static bool justLanded;
+	public static bool characterHasFlashlight = false;
 	public Shader shaderFlashlightOff;
 	public Shader shaderFlashlightOn;
 	public Light flashlight;
 	public static float respawnX = -188.7f;
 	public static float respawnY = 8.79f;
+	public static float respawnZ = -1f;
 	public static int numOfCoins = 0;
 	public static int numOfRocks = 0;
 	//Variable for grounded
@@ -29,25 +34,36 @@ public class LinkController : MonoBehaviour {
 	//Variables for walls
 	public Transform wallCheckL;
 	float wallRadius;
-	bool touchingL = false;
-
-
+	bool touchingL = false;	
 	public Animator anim;
+	//Sound variables
+	public AudioSource jumpSound;
+	public AudioClip landSound;
+	public AudioClip walkSound;
 
 
 
-	//Picking up a battery
+
+
 	void OnCollisionEnter2D (Collision2D other){
 
+		//Picking up a battery
 		if (other.gameObject.tag == "newBattery") {
 			GameManager.batteryTimeLeft = 49f;
 			Destroy(other.gameObject);
 
 		}
+		//Landing Sound
+		if (other.relativeVelocity.magnitude > 16 && other.gameObject.tag == "Ground") {
+			print ("Sound" + other.relativeVelocity.magnitude );
+			AudioSource.PlayClipAtPoint(landSound, transform.position);
+		}
+			
 	}
 
 
 	// Use this for initialization
+
 
 	void Update(){
 		anim.SetBool ("dead", dead);
@@ -58,12 +74,13 @@ public class LinkController : MonoBehaviour {
 		rigidbody2D.gravityScale = (onLadder) ? 0 : 1;
 
 		//Switch for the flashlight
-		if (Input.GetButtonDown("Light") && time > 0 ) {
+		if (characterHasFlashlight && Input.GetButtonDown("Light") && time > 0 ) {
 			flashlightOn = !flashlightOn;
 			(flashlight).enabled = flashlightOn;
 
 
-		}
+		} 
+
 	
 		// Setting For the flashlight
 		if (time < 0) {
@@ -71,7 +88,7 @@ public class LinkController : MonoBehaviour {
 			flashlightOn = false;
 		}
 		if (time < 7 && time > 6.3 || time < 1.0 && time > 0.1) {
-			(flashlight).enabled = (Random.Range(1,3) > 1);
+			(flashlight).enabled = (UnityEngine.Random.Range(1,3) > 1);
 
 
 		}
@@ -90,21 +107,27 @@ public class LinkController : MonoBehaviour {
 		// Character Jump
 		if (Input.GetButtonDown("Jump") && ( grounded || jumpCount < jumpsAllowed) && !dead) {
 
+
+			jumpSound.Play();
 			jumpCount = (grounded)?   0:jumpCount;   
 
 			if(jumpCount < 1){
 
-				rigidbody2D.AddForce(new Vector2(0,700f));
+				rigidbody2D.AddForce(new Vector2(0,830f));
 			}else{
 				rigidbody2D.AddForce(new Vector2(0,400f));
 			}
 			jumpCount =jumpCount +1;
-			
+		
+		} else { 
+			justLanded = true;
 		}
+
 		//Respawn Function
-		if(GameManager.playersHealth <= 0){
+		if(GameManager.playersHealth <= 0 ){
 			dead = true;
-			Respawn();
+
+			StartCoroutine( "Respawn");
 		}
 
 	}
@@ -124,8 +147,10 @@ public class LinkController : MonoBehaviour {
 		if (!dead) {
 
 			if (grounded) {
+	
 				rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
-				                                    rigidbody2D.velocity.y);
+			   	                                    rigidbody2D.velocity.y);
+
 			}
 			if (onLadder) {
 				anim.SetFloat ( "SpeedY", moveY );
@@ -137,13 +162,18 @@ public class LinkController : MonoBehaviour {
 			if (!grounded && !onLadder) {
 				rigidbody2D.velocity = new Vector2 (((Input.GetButton("Run") || (Input.GetAxis("Run") > 0.5f))? (maxSpeed + boost) : maxSpeed) * move ,
 				                                    rigidbody2D.velocity.y);
-			}
 
-			anim.SetFloat ("Speed", Mathf.Abs (move));
-			anim.SetBool ("running", ((Input.GetButton ("Run") || (Input.GetAxis ("Run") > 0.5f))));
+			} 
+			characterRunning = (( move < -0.9f || move > 0.9f) && (Input.GetButton ("Run") || (Input.GetAxis ("Run") > 0.5f)));
+
+			anim.SetFloat("Speed", Mathf.Abs (move));
+			anim.SetBool ("running", characterRunning);
 			anim.SetBool ("jumping", !(grounded));
 			anim.SetBool ("dead", dead);
+			anim.SetBool ("onLadder", onLadder);
+			anim.SetBool ("onLadderMoving", (onLadder && ( Mathf.Abs (move) !=0 || moveY != 0 )));
 			anim.SetBool ("throw", Input.GetButtonDown ("Fire1"));
+
 
 			if (move > 0 &&!facingRight) 
 				Flip ();
@@ -160,11 +190,14 @@ public class LinkController : MonoBehaviour {
 
 	}
 
-	void Respawn() {
-		GameManager.gracePeriod = 2f;
-		transform.position = new Vector2 (respawnX, respawnY);
-		GameManager.playersHealth = 3;
-		dead = false;
+	IEnumerator Respawn() {
+		if (dead){
+			GameManager.playersHealth = 3;
+			yield return new WaitForSeconds(3f);
+			dead = false;
+			transform.position = new Vector3 (respawnX, respawnY, respawnZ);
+			GameManager.gracePeriod = 2f;
+		}
 	}
 
 }

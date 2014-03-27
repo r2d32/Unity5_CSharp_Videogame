@@ -1,0 +1,423 @@
+fileFormatVersion: 2
+guid: 4c9820ad7d2b24569b89beeabcbe3ef6
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: npc_butterfly__x1_rest-top_png_1354829532_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_2
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_5
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_6
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 137
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_7
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 137
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_8
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 137
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_9
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 137
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 137
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_11
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 137
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_12
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 137
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_13
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 137
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_14
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 72
+        width: 36
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_15
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_17
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_18
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_19
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_20
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_22
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_23
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 72
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_24
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 72
+        width: 36
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_25
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 72
+        width: 36
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_26
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 72
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_27
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 72
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_28
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_29
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 7
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_30
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 7
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_31
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 7
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_32
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 7
+        width: 46
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_33
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_34
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_35
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_36
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_37
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_38
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_39
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_40
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_butterfly__x1_rest-top_png_1354829532_41
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 7
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

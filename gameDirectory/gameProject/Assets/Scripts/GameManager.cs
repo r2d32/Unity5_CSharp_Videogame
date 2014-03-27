@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
 			PlayerPrefs.DeleteKey("levelUnlock");
 		}
 
-		if (LinkController.flashlightOn) batteryTimeLeft -= Time.deltaTime;
+		if (LinkController.flashlightOn && LinkController.characterHasFlashlight) batteryTimeLeft -= Time.deltaTime;
 
 		if (gracePeriod > 0.0)gracePeriod -= Time.deltaTime;
 	}

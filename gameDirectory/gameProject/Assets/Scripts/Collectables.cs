@@ -9,6 +9,7 @@ public class Collectables : MonoBehaviour {
 	public bool specialItem;
 	public Texture2D item;
 	public int numOfCollectables;
+	public AudioClip coinSound;
 
 	//********** ADD ITEM TO CHARACTER **********//
 	void OnTriggerEnter2D(Collider2D other){
@@ -16,6 +17,7 @@ public class Collectables : MonoBehaviour {
 		if (other.gameObject.tag == "character") {
 
 			if(itemCoins){
+				AudioSource.PlayClipAtPoint(coinSound, transform.position);
 				Destroy(gameObject);
 				for(int i = 0; i < numOfCollectables; i++){
 					LinkController.numOfCoins += 1;

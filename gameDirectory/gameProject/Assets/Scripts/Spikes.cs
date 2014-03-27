@@ -11,6 +11,7 @@ public class Spikes : MonoBehaviour {
 	bool facingRight = true;
 	bool changeYposition = false;
 	bool moveRight = true; 
+	bool madeRisingSound = false;
 	float yStartingPos;
 	float yEndPos;
 	float endPos;
@@ -20,6 +21,7 @@ public class Spikes : MonoBehaviour {
 	public float moveSpeed = 4;
 	public float yMoveSpeed = 4;
 	public float tolerance = 0.0f;
+	public AudioSource riseSound;
 	string currentDirection = "right";
 	string[] directions = { "right",
 		"down",
@@ -51,10 +53,15 @@ public class Spikes : MonoBehaviour {
 				break;
 			case 2: //move left
 				rigidbody2D.velocity = new Vector2 (-moveSpeed, 0);
-				if (transform.position.x <= (startingPos + tolerance))
+				if (transform.position.x <= (startingPos + tolerance)){
 				    currentDirection = "up";
+					madeRisingSound =false;
+				}
 				break;
 			case 3: //move up
+				if(! madeRisingSound) 
+					audio.PlayOneShot(riseSound.clip);
+				madeRisingSound =true;
 				rigidbody2D.velocity = new Vector2 (0, yMoveSpeed);
 				if (transform.position.y >= (yStartingPos - tolerance))
 				    currentDirection = "right";
@@ -64,11 +71,9 @@ public class Spikes : MonoBehaviour {
 	}
 
 	/********** SPIKE's COLLIDER DAMAGE **********/		
-	IEnumerator OnTriggerEnter2D(Collider2D other){
+	void OnTriggerEnter2D(Collider2D other){
 			
-		if (other.gameObject.tag == "character") {
-			LinkController.dead = true;
-			yield return new WaitForSeconds(3);
+		if (other.gameObject.tag == "character" && !LinkController.dead && GameManager.gracePeriod <= 0) {
 			GameManager.playersHealth = 0 ;
 		}
 	}
