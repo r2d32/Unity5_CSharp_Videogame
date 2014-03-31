@@ -57,6 +57,7 @@ public class LinkController : MonoBehaviour {
 		if (other.relativeVelocity.magnitude > 16 && other.gameObject.tag == "Ground") {
 			print ("Sound" + other.relativeVelocity.magnitude );
 			AudioSource.PlayClipAtPoint(landSound, transform.position);
+
 		}
 			
 	}

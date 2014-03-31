@@ -4,19 +4,19 @@ using System.Collections;
 public class Butterfly_npc : MonoBehaviour {
 	
 		
-	public Transform target;//set target from inspector instead of looking in Update
+	public Transform target;
 	public float speed = 10f;
 	public static bool following = false;
 
 		
 	
-	// Update is called once per frame
+	/********** BUTTERFLY's BASIC FOLLOWING AI SCRIPT *********/
 	void Update () {
 		if (following) {
 
 			transform.LookAt(target);
 			
-			if(Vector3.Distance(transform.position,target.position) >= 4f){
+			if(Vector3.Distance(transform.position,target.position) >= 5f){
 				
 				transform.position += transform.forward*speed*Time.deltaTime;
 				transform.position = new Vector3(transform.position.x,transform.position.y,-5f);

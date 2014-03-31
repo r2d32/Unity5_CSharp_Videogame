@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\TorchLight.cs" />
      <Compile Include="Assets\Scripts\TrailSwitch.cs" />
      <Compile Include="Assets\Scripts\Zone.cs" />
+     <Compile Include="Assets\Scripts\Zone1Boss.cs" />
      <Compile Include="Assets\Scripts\objectThrower.cs" />
      <Compile Include="Assets\Scripts\throwable.cs" />
      <None Include="Assets\Sprites\Platformer Pack\HUD\hud_spritesheet.txt" />

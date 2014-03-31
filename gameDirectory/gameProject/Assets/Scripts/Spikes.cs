@@ -8,8 +8,6 @@ public class Spikes : MonoBehaviour {
 	
 	/********** NPC's VARIABLES **********/
 	public bool isDynamicSpike = false;
-	bool facingRight = true;
-	bool changeYposition = false;
 	bool moveRight = true; 
 	bool madeRisingSound = false;
 	float yStartingPos;
@@ -59,8 +57,9 @@ public class Spikes : MonoBehaviour {
 				}
 				break;
 			case 3: //move up
-				if(! madeRisingSound) 
-					audio.PlayOneShot(riseSound.clip);
+				if(! madeRisingSound) {
+					riseSound.Play();
+				}
 				madeRisingSound =true;
 				rigidbody2D.velocity = new Vector2 (0, yMoveSpeed);
 				if (transform.position.y >= (yStartingPos - tolerance))
