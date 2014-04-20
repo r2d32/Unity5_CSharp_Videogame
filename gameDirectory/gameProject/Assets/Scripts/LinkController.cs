@@ -41,6 +41,9 @@ public class LinkController : MonoBehaviour {
 	public AudioClip landSound;
 	public AudioClip walkSound;
 
+	//weapon variables
+	public Collider2D sword;
+
 
 
 
@@ -156,7 +159,7 @@ public class LinkController : MonoBehaviour {
 			if (onLadder) {
 				anim.SetFloat ( "SpeedY", moveY );
 				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, moveY * maxSpeed);
-
+  
 			} else { 
 				anim.SetFloat ( "SpeedY", 0 );
 			}
@@ -173,7 +176,10 @@ public class LinkController : MonoBehaviour {
 			anim.SetBool ("dead", dead);
 			anim.SetBool ("onLadder", onLadder);
 			anim.SetBool ("onLadderMoving", (onLadder && ( Mathf.Abs (move) !=0 || moveY != 0 )));
-			anim.SetBool ("throw", Input.GetButtonDown ("Fire1"));
+			if (Input.GetButtonDown ("Attack")){
+				StartCoroutine(SwordAttack());
+			}
+			anim.SetBool ("sword", Input.GetButtonDown ("Attack"));
 
 
 			if (move > 0 &&!facingRight) 
@@ -199,6 +205,13 @@ public class LinkController : MonoBehaviour {
 			transform.position = new Vector3 (respawnX, respawnY, respawnZ);
 			GameManager.gracePeriod = 2f;
 		}
+	}
+	/********** SWIPE ATTACK **********/
+	IEnumerator SwordAttack() {
+		yield return new WaitForSeconds(0.5f);
+		sword.enabled = true;
+		yield return new WaitForSeconds(0.02f);
+		sword.enabled = false;
 	}
 
 }

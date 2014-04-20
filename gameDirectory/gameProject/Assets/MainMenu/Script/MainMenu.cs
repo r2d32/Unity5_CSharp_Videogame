@@ -8,7 +8,6 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-	public Texture backgroundTexture;
 	public GUIStyle btn1;
 	public GUIStyle btn2;
 	public bool btnImages;
@@ -18,7 +17,7 @@ public class MainMenu : MonoBehaviour {
 	void OnGUI  () {
 
 		//Display Background Texture
-		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
+
 
 		if (btnImages) {
 
@@ -32,11 +31,11 @@ public class MainMenu : MonoBehaviour {
 		} else { 
 
 			//Display Buttons
-			if (GUI.Button (new Rect (Screen.width * .25f, Screen.height * .5f, Screen.width * .5f, Screen.height * .1f), "Play ")) {
+			if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .75f, Screen.width * .2f, Screen.height * .1f), "Play ")) {
 				print ("helo");
-				Application.LoadLevel("LevelSelect");
+				Application.LoadLevel("Start");
 			}
-			if (GUI.Button (new Rect (Screen.width * .25f, Screen.height * .7f, Screen.width * .5f, Screen.height * .1f), "Game Options")) {
+			if (GUI.Button (new Rect (Screen.width * .4f, Screen.height * .85f, Screen.width * .2f, Screen.height * .1f), "Game Options")) {
 				print ("helo");
 			}
 		}

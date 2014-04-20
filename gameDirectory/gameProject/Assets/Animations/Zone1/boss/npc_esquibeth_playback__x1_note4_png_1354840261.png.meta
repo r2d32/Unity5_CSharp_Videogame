@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: 3c72868165ebe4d25ba29adf27b217eb
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 821
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_1
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 821
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_2
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 821
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_3
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 821
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_4
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 821
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_5
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 821
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 617
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_7
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 617
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 617
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_9
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 617
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_10
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 617
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_11
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 617
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_13
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 413
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_14
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 413
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_15
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 413
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_16
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 413
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_17
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 413
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 209
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_19
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 209
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_20
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 209
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_21
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 209
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_22
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 209
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_23
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 209
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_25
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 5
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_26
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 5
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_27
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 5
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_28
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 5
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: npc_esquibeth_playback__x1_note4_png_1354840261_29
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 5
+        width: 156
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

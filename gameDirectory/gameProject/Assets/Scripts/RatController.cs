@@ -16,6 +16,9 @@ public class RatController : MonoBehaviour {
 	public int moveSpeed = 4;
 	bool moveRight = true; 
 	static float gracePeriod = 0;
+	public Transform playersTransform;
+	bool onCyclicMovement;
+	float move;
 
 	/********** INITIALIZATION ***********/
 	void Awake () {
@@ -25,18 +28,37 @@ public class RatController : MonoBehaviour {
 	}
 
 	void Update(){
-		if(moveRight){
-			rigidbody2D.velocity = new Vector2 (moveSpeed, rigidbody2D.velocity.y);
-		}
-		if (transform.position.x >= endPos) {
-			moveRight = false;
-		}
-		if(!moveRight){
-			rigidbody2D.velocity = new Vector2 (-moveSpeed, rigidbody2D.velocity.y);
-		}
-		if (transform.position.x <= startingPos) {
-			moveRight = true;
 
+		/********** FOLLOW CHARACTER IF IS CLOSE **********/
+		transform.LookAt(playersTransform);
+		
+		if(Vector3.Distance(transform.position,playersTransform.position) < 7f){
+			onCyclicMovement = false;
+			
+			transform.position += transform.forward*(moveSpeed * 2)*Time.deltaTime;
+			transform.position = new Vector3(transform.position.x,transform.position.y,-5f);
+
+			move = (transform.position.x < playersTransform.position.x )? 1f : -1f; 
+			
+		}else {
+			onCyclicMovement = true;
+		}
+		transform.rotation = Quaternion.Euler(0, 0, 0);
+
+		if (onCyclicMovement){
+			if(moveRight){
+				rigidbody2D.velocity = new Vector2 (moveSpeed, rigidbody2D.velocity.y);
+			}
+			if (transform.position.x >= endPos) {
+				moveRight = false;
+			}
+			if(!moveRight){
+				rigidbody2D.velocity = new Vector2 (-moveSpeed, rigidbody2D.velocity.y);
+			}
+			if (transform.position.x <= startingPos) {
+				moveRight = true;
+
+			}
 		}
 
 		/********** NPC's GRACE PERIOD **********/ 
@@ -46,6 +68,7 @@ public class RatController : MonoBehaviour {
 		} else {
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 		}
+
 
 
 	}
@@ -68,7 +91,8 @@ public class RatController : MonoBehaviour {
 	/********** NPC's MOVEMENT **********/ 
 	void FixedUpdate () {
 		ratAnim = GetComponent<Animator>(); 
-		float move = rigidbody2D.velocity.x;
+		if (onCyclicMovement)
+			move = rigidbody2D.velocity.x;
 		ratAnim.SetFloat ( "S", Mathf.Abs(move));
 
 		if (move > 0 &&!facingRight) 

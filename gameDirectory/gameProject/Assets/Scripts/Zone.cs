@@ -5,6 +5,7 @@ public class Zone : MonoBehaviour {
 
 	public int zoneNumber = 1;
 	public bool zoneBoss = false;
+	bool startedBattle = false;
 	public Light mainLight;
 
 	void OnTriggerEnter2D (Collider2D other){
@@ -12,8 +13,9 @@ public class Zone : MonoBehaviour {
 			Butterfly_npc.following = !Butterfly_npc.following;
 			mainLight.enabled = !mainLight.enabled;
 			Zone1Boss.notCloseToTarget = true;
-		} else if (other.gameObject.tag == "character" && zoneNumber == 1 && zoneBoss) {
+		} else if (other.gameObject.tag == "character" && zoneNumber == 1 && zoneBoss && !startedBattle) {
 			Zone1Boss.startBattleMode = true;
+			startedBattle =true;
 		}
 	}
 }
