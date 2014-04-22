@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\LinkController.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\RatController.cs" />
+     <Compile Include="Assets\Scripts\SineMovement.cs" />
      <Compile Include="Assets\Scripts\Spikes.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
      <Compile Include="Assets\Scripts\Target.cs" />

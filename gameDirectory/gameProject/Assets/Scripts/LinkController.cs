@@ -3,25 +3,26 @@ using System.Collections;
 using System;
 public class LinkController : MonoBehaviour {
 
-	public float maxSpeed = 4f;
-	float boost = 4f;
-	public static bool facingRight = true;
-	public static bool flashlightOn = false;
-	static bool characterRunning = false;
-	static bool justLanded;
-	public static bool characterHasFlashlight = false;
-	public Shader shaderFlashlightOff;
-	public Shader shaderFlashlightOn;
-	public Light flashlight;
-	public static float respawnX = -188.7f;
-	public static float respawnY = 8.79f;
-	public static float respawnZ = -1f;
-	public static int numOfCoins = 0;
-	public static int numOfRocks = 0;
-	//Variable for grounded
-	bool grounded = false;
-	public Transform groundCheck;
-	float groundRadius = 0.4f;
+    public float maxSpeed = 4f;
+    float boost = 4f;
+    public static bool facingRight = true;
+    public static bool flashlightOn = false;
+    static bool characterRunning = false;
+    static bool justLanded;
+    public static bool characterHasFlashlight = false;
+    public Shader shaderFlashlightOff;
+    public Shader shaderFlashlightOn;
+    public Light flashlight;
+    public static float respawnX = -188.7f;
+    public static float respawnY = 8.79f;
+    public static float respawnZ = -1f;
+    public static int numOfCoins = 0;
+    public static int numOfRocks = 0;
+    
+    //Variable for grounded
+    bool grounded = false;
+    public Transform groundCheck;
+    float groundRadius = 0.4f;
 	public LayerMask whatIsGround;
 	int jumpCount = 0;
 	public int jumpsAllowed = 2;

@@ -24,7 +24,7 @@ public class RatController : MonoBehaviour {
 	void Awake () {
 		startingPos = transform.position.x;
 		endPos = startingPos + unitToMove;
-	
+	 
 	}
 
 	void Update(){
