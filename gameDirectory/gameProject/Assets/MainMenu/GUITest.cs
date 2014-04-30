@@ -25,4 +25,5 @@ public class GUITest : MonoBehaviour {
 			Application.LoadLevel("MainMenu");
 		}
 	}
+
 }

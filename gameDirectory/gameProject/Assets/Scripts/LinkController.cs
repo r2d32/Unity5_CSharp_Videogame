@@ -20,7 +20,7 @@ public class LinkController : MonoBehaviour {
     public static int numOfRocks = 0;
     
     //Variable for grounded
-    bool grounded = false;
+    public static bool grounded = false;
     public Transform groundCheck;
     float groundRadius = 0.4f;
 	public LayerMask whatIsGround;
@@ -33,7 +33,7 @@ public class LinkController : MonoBehaviour {
 	public static bool dead = false;
 	float time;
 	//Variables for walls
-	public Transform wallCheckL;
+	public static Transform wallCheckL;
 	float wallRadius;
 	bool touchingL = false;	
 	public Animator anim;
@@ -44,6 +44,8 @@ public class LinkController : MonoBehaviour {
 
 	//weapon variables
 	public Collider2D sword;
+   
+  public GameManager gameManager;
 
 
 
@@ -73,7 +75,6 @@ public class LinkController : MonoBehaviour {
 	void Update(){
 		anim.SetBool ("dead", dead);
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
-	    touchingL = Physics2D.OverlapCircle (wallCheckL.position, groundRadius, whatIsGround); 
 		time = GameManager.batteryTimeLeft;
 
 		rigidbody2D.gravityScale = (onLadder) ? 0 : 1;
@@ -209,6 +210,7 @@ public class LinkController : MonoBehaviour {
 	}
 	/********** SWIPE ATTACK **********/
 	IEnumerator SwordAttack() {
+        gameManager.RespondDeadNpcs();
 		yield return new WaitForSeconds(0.5f);
 		sword.enabled = true;
 		yield return new WaitForSeconds(0.02f);

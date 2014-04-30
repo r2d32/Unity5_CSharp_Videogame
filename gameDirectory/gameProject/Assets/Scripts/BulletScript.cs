@@ -5,7 +5,7 @@ public class BulletScript : MonoBehaviour {
 
 	public int damageValue = 1;
 	public Animator anim;
-
+    public AudioClip explosion;
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Enemy"){
 			StartCoroutine (Explode());
@@ -15,14 +15,13 @@ public class BulletScript : MonoBehaviour {
 			StartCoroutine (Explode());
 			other.gameObject.SendMessage("EnemyDamaged", damageValue, SendMessageOptions.DontRequireReceiver);
 
-		}else if (other.gameObject.tag != "character"){
+		}else if (other.gameObject.tag != "character" && other.gameObject.tag != "Untagged"){
 			print ("BOOM");
 			StartCoroutine (Explode());
 		} else {
 			print ("BOOM2");
 		}
 	}
-	//void OnCollisionEnter2D(Collider2D other){Destroy(gameObject);  }
 	void FixedUpdate(){
 		Destroy(gameObject,4.25f);
 	}
@@ -30,6 +29,7 @@ public class BulletScript : MonoBehaviour {
 	IEnumerator Explode(){
 		rigidbody2D.velocity = new Vector2(0,0);
 		anim.SetBool ("exploting", true);
+        AudioSource.PlayClipAtPoint(explosion, transform.position,2f);
 		yield return new WaitForSeconds (0.84f);
 		Destroy (gameObject);
 		anim.SetBool ("exploting", false);

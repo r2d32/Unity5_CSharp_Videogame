@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\LinkController.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\RatController.cs" />
+     <Compile Include="Assets\Scripts\RespawnableNPCs.cs" />
      <Compile Include="Assets\Scripts\SineMovement.cs" />
      <Compile Include="Assets\Scripts\Spikes.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
@@ -74,12 +75,6 @@
      <Compile Include="Assets\Scripts\Zone1Boss.cs" />
      <Compile Include="Assets\Scripts\objectThrower.cs" />
      <Compile Include="Assets\Scripts\throwable.cs" />
-     <None Include="Assets\Sprites\Platformer Pack\HUD\hud_spritesheet.txt" />
-     <None Include="Assets\Sprites\Platformer Pack\tiles_spritesheet.txt" />
-     <None Include="Assets\Sprites\Platformer Pack\Enemies\enemies_spritesheet.txt" />
-     <None Include="Assets\Sprites\Platformer Pack\Player\p2_spritesheet.txt" />
-     <None Include="Assets\Sprites\Platformer Pack\Player\p3_spritesheet.txt" />
-     <None Include="Assets\Sprites\Platformer Pack\Player\p1_spritesheet.txt" />
      <None Include="Assets\MainMenu\mainMenu_css.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
