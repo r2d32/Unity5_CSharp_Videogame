@@ -18,6 +18,7 @@ public class LinkController : MonoBehaviour {
     public static float respawnZ = -1f;
     public static int numOfCoins = 0;
     public static int numOfRocks = 0;
+    bool playedGrunt = false;
     
     //Variable for grounded
     public static bool grounded = false;
@@ -41,6 +42,7 @@ public class LinkController : MonoBehaviour {
 	public AudioSource jumpSound;
 	public AudioClip landSound;
 	public AudioClip walkSound;
+    public AudioClip gruntSound;
 
 	//weapon variables
 	public Collider2D sword;
@@ -48,7 +50,8 @@ public class LinkController : MonoBehaviour {
   public GameManager gameManager;
 
 
-
+    void start() {
+    }
 
 
 	void OnCollisionEnter2D (Collision2D other){
@@ -111,8 +114,7 @@ public class LinkController : MonoBehaviour {
 			this.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 		// Character Jump
-		if (Input.GetButtonDown("Jump") && ( grounded || jumpCount < jumpsAllowed) && !dead) {
-
+        if ((Input.GetButtonDown("Jump")||Input.GetButtonDown("360_AButton")) && ( grounded || jumpCount < jumpsAllowed) && !dead ) {
 
 			jumpSound.Play();
 			jumpCount = (grounded)?   0:jumpCount;   
@@ -132,14 +134,18 @@ public class LinkController : MonoBehaviour {
 		//Respawn Function
 		if(GameManager.playersHealth <= 0 ){
 			dead = true;
-
-			StartCoroutine( "Respawn");
+            if(!playedGrunt){
+                AudioSource.PlayClipAtPoint(gruntSound, transform.position,4f);
+            }   
+                playedGrunt = true;
+			StartCoroutine("Respawn");
 		}
 
 	}
 
 	void Start () {
-		anim = GetComponent<Animator>();
+    gameManager.RespondDeadNpcs();
+        anim = GetComponent<Animator>();
 	}
 
 
@@ -184,15 +190,17 @@ public class LinkController : MonoBehaviour {
 			anim.SetBool ("sword", Input.GetButtonDown ("Attack"));
 
 
-			if (move > 0 &&!facingRight) 
+			if (move > 0 &&!facingRight){ 
 				Flip ();
-			else if (move < 0 && facingRight)
+                facingRight = true;
+            }else if (move < 0 && facingRight){
 				Flip ();
+                facingRight = false;
+            }
 		}
 	}
 	void Flip() {
 
-		facingRight = !facingRight;
 		Vector4 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
@@ -201,16 +209,19 @@ public class LinkController : MonoBehaviour {
 
 	IEnumerator Respawn() {
 		if (dead){
-			GameManager.playersHealth = 3;
-			yield return new WaitForSeconds(3f);
-			dead = false;
+            yield return new WaitForSeconds(1.5f);
+            CameraFade.FadingOn = true;
+            yield return new WaitForSeconds(2f);
+            gameManager.RespondDeadNpcs();
+            GameManager.playersHealth = 3;
+            dead = false;
+            playedGrunt = false;
 			transform.position = new Vector3 (respawnX, respawnY, respawnZ);
-			GameManager.gracePeriod = 2f;
+            GameManager.gracePeriod = 2f;
 		}
 	}
 	/********** SWIPE ATTACK **********/
 	IEnumerator SwordAttack() {
-        gameManager.RespondDeadNpcs();
 		yield return new WaitForSeconds(0.5f);
 		sword.enabled = true;
 		yield return new WaitForSeconds(0.02f);

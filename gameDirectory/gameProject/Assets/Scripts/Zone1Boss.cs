@@ -25,13 +25,19 @@ public class Zone1Boss : MonoBehaviour {
 	bool defensless = false;
 	float coolDown = 0f;
 	public bool attack = false;
+    bool characterIsAlive = true;
+    bool restartBoss = false;
+    public Zone battleEntrance;
 	static public bool startBattleMode = false;
 
 	public bool isFollowingCharacter = false;
 
+    //DEMO
+    public Transform characterStartingPoint;
 
 
 	void Start () {
+        musics[0].enabled = true;
 	}
 
 
@@ -77,11 +83,20 @@ public class Zone1Boss : MonoBehaviour {
 		yield return new WaitForSeconds (2f);
 		anim.SetBool ("crazy", false);
 		anim.SetBool ("dead", true);
-		yield return new WaitForSeconds (4f);
-		Destroy(gameObject);
+        musics[0].enabled = false;
+		yield return new WaitForSeconds (12f);
+        anim.SetBool ("dead", false);
+        LinkController.respawnX = characterStartingPoint.transform.position.x;    //DEMO
+        LinkController.respawnY = characterStartingPoint.transform.position.y;    //DEMO
+        Application.LoadLevel("EndScene");
+        Butterfly_npc.following = !Butterfly_npc.following;
+        //Destroy(gameObject);    //DEMO
+        yield return new WaitForSeconds (4f);
+           
 		for (int i = 0; i < objectsToDestroyOnDeath.Length; i++) {
 			Destroy(objectsToDestroyOnDeath[i].gameObject);
 		}
+        yield return new WaitForSeconds (4f);
 	}
 
 	/********** COLLLIDER ATTACK **********/
@@ -91,12 +106,25 @@ public class Zone1Boss : MonoBehaviour {
 			GameManager.gracePeriod = 2.0f;
 		}
 	}
+    /********** RESETS BOSS WHEN CHARACTER DIES **********/
+    IEnumerator resetBossState(){
+        battleEntrance.startedBattle = false;
+        isFollowingCharacter = false;
+        enemyLife = 4;
+        notCloseToTarget = true;
+        musics[0].enabled = true;
+        musics[1].enabled = false;
+        yield return new WaitForSeconds (5f);
+        restartBoss = false;
+        speed = 5f;
+    }
 
 	IEnumerator startBattle(){
 		int numOfShots = 3;
 		float originalSpeed = speed;
+        
 
-		while(enemyLife > 0){
+        while(enemyLife > 0 && !restartBoss){
 			speed = originalSpeed + (4 - enemyLife);
 			notCloseToTarget = true;
 			yield return new WaitForSeconds (1f);
@@ -119,15 +147,20 @@ public class Zone1Boss : MonoBehaviour {
 				anim.SetBool ("crazy", true);
 				yield return new WaitForSeconds ( 5f );
 				isFollowingCharacter = false;
-				anim.SetBool ("crazy", false);
-			}
+            }
+            anim.SetBool ("crazy", false);
 		}
+        
 	}
 	void GracePeriod(float passedTime){
 		gracePeriod = passedTime;
 	}
 	void Update () {
-
+        characterIsAlive = GameManager.playersHealth > 0;
+        if(!characterIsAlive){
+            restartBoss = true;
+            StartCoroutine(resetBossState());
+        }
 		/********** MOVES THE CHARACTER TO THE TARGET SELECTED **********/
 		if (notCloseToTarget) {
 				

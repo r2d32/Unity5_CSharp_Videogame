@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour {
 	public Animator anim;
     public AudioClip explosion;
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "Enemy"){
+        if(other.gameObject.tag == "Enemy"|| other.gameObject.tag == "Boss" ){
 			StartCoroutine (Explode());
 			other.gameObject.SendMessage("EnemyDamaged", damageValue, SendMessageOptions.DontRequireReceiver);
 			other.gameObject.SendMessage("GracePeriod", 2.0f, SendMessageOptions.DontRequireReceiver);
@@ -15,11 +15,9 @@ public class BulletScript : MonoBehaviour {
 			StartCoroutine (Explode());
 			other.gameObject.SendMessage("EnemyDamaged", damageValue, SendMessageOptions.DontRequireReceiver);
 
-		}else if (other.gameObject.tag != "character" && other.gameObject.tag != "Untagged"){
-			print ("BOOM");
+        }else if (other.gameObject.tag != "character" && other.gameObject.tag != "Untagged" && other.gameObject.tag != "Checkpoint"){
 			StartCoroutine (Explode());
 		} else {
-			print ("BOOM2");
 		}
 	}
 	void FixedUpdate(){

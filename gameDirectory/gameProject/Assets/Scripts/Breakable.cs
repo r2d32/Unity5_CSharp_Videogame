@@ -31,8 +31,8 @@ public class Breakable : MonoBehaviour {
         }
     }
     void OnCollisionStay2D(Collision2D other){
-        if(other.relativeVelocity.magnitude > 21f)
-                        print(other.relativeVelocity.magnitude + "BOX");
+        //if(other.relativeVelocity.magnitude > 21f)
+                        //print(other.relativeVelocity.magnitude + "BOX");
   
     }
     void OnCollisionEnter2D(Collision2D other){
@@ -42,7 +42,7 @@ public class Breakable : MonoBehaviour {
             if(other.collider.tag == "character"){
             if(sound) 
                 knockSound.PlayOneShot(hitSound,0.75f *collisionStrength);
-            print(other.relativeVelocity.magnitude + "BOX");
+           // print(other.relativeVelocity.magnitude + "BOX");
             }
         }
     }

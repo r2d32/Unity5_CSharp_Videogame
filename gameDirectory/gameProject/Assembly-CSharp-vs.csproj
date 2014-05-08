@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\TrailSwitch.cs" />
      <Compile Include="Assets\Scripts\Zone.cs" />
      <Compile Include="Assets\Scripts\Zone1Boss.cs" />
+     <Compile Include="Assets\Scripts\guiAndScenes\CameraFade.cs" />
      <Compile Include="Assets\Scripts\objectThrower.cs" />
      <Compile Include="Assets\Scripts\throwable.cs" />
      <None Include="Assets\MainMenu\mainMenu_css.txt" />

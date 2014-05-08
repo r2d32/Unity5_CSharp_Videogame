@@ -5,8 +5,14 @@ public class Zone : MonoBehaviour {
 
 	public int zoneNumber = 1;
 	public bool zoneBoss = false;
-	bool startedBattle = false;
+	public bool startedBattle = false;
 	public Light mainLight;
+
+    void update(){
+        if(GameManager.playersHealth < 1){
+            startedBattle =false;
+        } 
+    }
 
 	void OnTriggerEnter2D (Collider2D other){
 		if (other.gameObject.tag == "character" && zoneNumber == 1 && !zoneBoss) {

@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour {
     /********** GUI VARIABLES **********/
     public Texture playersHealthTexture;
     public Texture playerCoinTexture;
+    public Texture backGUI;
     public Texture playerRocksTexture;
-    public Transform playerT;
     public float screenPositionX;
     public float screenPositionY;
     public int iconSizeX = 25;
@@ -20,9 +20,10 @@ public class GameManager : MonoBehaviour {
     private bool pauseMenuActive;
     public static float gameTime;
     public GUIStyle guiText;
+    public GUIStyle guiTextSpell;
 
     /********** CHARACTER INFO *************/
-    public static int playersHealth = 3;
+    public static int playersHealth = 7;
     public static List<Texture2D> characterKeyItems = new List<Texture2D>();
     public static float gracePeriod = 0.0f;
     public int lastLevel = 1;
@@ -33,9 +34,10 @@ public class GameManager : MonoBehaviour {
     public RespawnableNPCs[] respawnableNPCs;
     public Rigidbody2D[] npcObjectPrefabs;
     public String[] npcKinds;
+   
 
-    public Transform getPlayerTransform(){
-    return playerT;
+    void start(){
+        RespondDeadNpcs();
     }
     
     /********** UPDATES VARIABLES THAT USE TIME **********/
@@ -63,27 +65,24 @@ public class GameManager : MonoBehaviour {
     void OnGUI () {
 
         /********** ON GAME GUI **********/
+        //Back state GUI
+        GUI.DrawTexture(new Rect (10, 10, 325 , 88), 
+                        backGUI, ScaleMode.ScaleToFit, true, 0);
 
         // HEALTH 
         for (int h = 0; h < playersHealth; h++) {
-            GUI.DrawTexture(new Rect (screenPositionX + ( h * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), 
+            GUI.DrawTexture(new Rect (30 + ( h * 30 ), 24, 30 , 20), 
                             playersHealthTexture, ScaleMode.ScaleToFit, true, 0);
         }
 
         // COLLECTABLES
-        GUI.DrawTexture(new Rect (screenPositionX + ( 4 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), 
+        GUI.DrawTexture(new Rect (45, 60, iconSizeX , iconSizeY), 
                         playerCoinTexture, ScaleMode.ScaleToFit, true, 0);
-        GUI.Label(new Rect (screenPositionX + ( 5 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), ":" + LinkController.numOfCoins, guiText);
+        GUI.Label(new Rect (66, 59, iconSizeX , iconSizeY), "" + LinkController.numOfCoins, guiText);
 
-        GUI.DrawTexture(new Rect (screenPositionX + ( 6 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), 
+        GUI.DrawTexture(new Rect (133, 60, iconSizeX , iconSizeY), 
                         playerRocksTexture, ScaleMode.ScaleToFit, true, 0);
-        GUI.Label(new Rect (screenPositionX + ( 7 * iconSizeX ), screenPositionY, iconSizeX , iconSizeY), ":" + LinkController.numOfRocks, guiText);
-
-        /*for (int h = 0; h < playersBatteries; h++) {
-			GUI.DrawTexture(new Rect (screenPositionX , screenPositionY + iconSizeY, iconSizeX * 2, iconSizeY*2 ), 
-			                batteryStatus[(( batteryTimeLeft > batteryShellLife )?((int)Math.Floor((double)batteryTimeLeft /(double)batteryShellLife)):
-			               0)], ScaleMode.ScaleToFit, true, 0);
-		}*/
+        GUI.Label(new Rect (160, 60, iconSizeX , iconSizeY), "" + LinkController.numOfRocks, guiTextSpell);
 
         // KEY ITEMS 
         for (int e = 0; e < characterKeyItems.Count; e++) {
@@ -113,13 +112,23 @@ public class GameManager : MonoBehaviour {
 
     /********** RESPOND NPC'S SCRIPT **********/
     public void RespondDeadNpcs(){
+        StartCoroutine(killEnemies());    
         foreach(RespawnableNPCs npc in respawnableNPCs){
-            //int npcKind = npcKinds.IndexOf( "DarkSoldier" );
-
+            int npcKind = System.Array.IndexOf(npcKinds,npc.kind);
             if(!npc.npcIsAlive){
-                RatController bPrefab = Instantiate (( npcObjectPrefabs[0] ), npc.npcLocation.position, Quaternion.identity) as RatController;
+                Rigidbody2D bPrefab = Instantiate (( npcObjectPrefabs[npcKind] ), npc.npcLocation.position, Quaternion.identity) as Rigidbody2D;
+                //npc.npcIsAlive;
 
-           }
-        }       
+            }
+        }    
+    }
+    IEnumerator killEnemies(){
+    
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+        print("wiped");
+        foreach(GameObject enemy in enemies){
+            Destroy(enemy);
+        }
+        yield return new WaitForSeconds(1f);
     }
 }
